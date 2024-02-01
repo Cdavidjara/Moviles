@@ -84,7 +84,7 @@ class Formulario1 extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: Colors.black, // Color del contorno
+                    color: Color.fromARGB(255, 10, 2, 2), // Color del contorno
                     width: 6.0, // Ancho del contorno
                   ),
                 ),
