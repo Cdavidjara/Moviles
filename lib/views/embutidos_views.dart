@@ -22,13 +22,13 @@ class Opcion4 extends StatelessWidget {
                   child: Column(
                     children: [
                       _buildImageWithDetails(
-                        'assets/images/em 1.png',
+                        'assets/imag/em1.png',
                         'JAMON',
                         '\$00.50',
                       ),
                       SizedBox(height: 10.0),
                       _buildImageWithDetails(
-                        'assets/images/em 2.png',
+                        'assets/imag/em 2.png',
                         'CHORIZO',
                         '\$00.90',
                       ),
@@ -40,13 +40,13 @@ class Opcion4 extends StatelessWidget {
                   child: Column(
                     children: [
                       _buildImageWithDetails(
-                        'assets/images/em 3.png',
+                        'assets/imag/em 3.png',
                         'SALCHICHA DE POLLO',
                         '\$00.80',
                       ),
                       SizedBox(height: 10.0),
                       _buildImageWithDetails(
-                        'assets/images/em4.png',
+                        'assets/imag/em4.png',
                         'sALCHICHA DE CARNE',
                         '\$01.00',
                       ),
