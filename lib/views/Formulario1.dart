@@ -1,7 +1,15 @@
+import 'package:examen_002/views/embutidos_views.dart';
 import 'package:flutter/material.dart';
 
 class Formulario1 extends StatelessWidget {
   const Formulario1({Key? key});
+
+  void navigateToFormulario4(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Opcion4()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,28 +37,33 @@ class Formulario1 extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: const Text('EMBUTIDOS', style: TextStyle(color: Colors.white)),
+              title: const Text('EMBUTIDOS',
+                  style: TextStyle(color: Colors.white)),
               tileColor: Colors.black,
               onTap: () {
                 Navigator.pop(context);
+                navigateToFormulario4(context);
               },
             ),
             ListTile(
-              title: const Text('CARNES DE VACA', style: TextStyle(color: Colors.black)),
+              title: const Text('CARNES DE VACA',
+                  style: TextStyle(color: Colors.black)),
               tileColor: Colors.white,
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              title: const Text('CARNE DE CERDO', style: TextStyle(color: Colors.white)),
+              title: const Text('CARNE DE CERDO',
+                  style: TextStyle(color: Colors.white)),
               tileColor: Colors.black,
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              title: const Text('CARNE DE POLLO', style: TextStyle(color: Colors.black)),
+              title: const Text('CARNE DE POLLO',
+                  style: TextStyle(color: Colors.white)),
               tileColor: Colors.white,
               onTap: () {
                 Navigator.pop(context);
