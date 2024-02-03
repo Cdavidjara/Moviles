@@ -1,3 +1,9 @@
+
+
+
+import 'package:examen_002/views/carnedecerdo.dart';
+import 'package:examen_002/views/carnedepollo.dart';
+import 'package:examen_002/views/carnedevaca.dart';
 import 'package:examen_002/views/embutidos_views.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +13,25 @@ class Formulario1 extends StatelessWidget {
   void navigateToFormulario4(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Opcion4()),
+      MaterialPageRoute(builder: (context) => const Opcion4()),
+    );
+  }
+  void navigateToFormulario2(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Opcion2()),
+    );
+  }
+  void navigateToFormulario3(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Opcion3()),
+    );
+  }
+  void navigateToFormulario5(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Opcion5()),
     );
   }
 
@@ -46,11 +70,12 @@ class Formulario1 extends StatelessWidget {
               },
             ),
             ListTile(
-              title: const Text('CARNES DE VACA',
+              title: const Text('CARNE DE VACA',
                   style: TextStyle(color: Colors.black)),
               tileColor: Colors.white,
               onTap: () {
                 Navigator.pop(context);
+                navigateToFormulario2(context);
               },
             ),
             ListTile(
@@ -59,14 +84,16 @@ class Formulario1 extends StatelessWidget {
               tileColor: Colors.black,
               onTap: () {
                 Navigator.pop(context);
+                navigateToFormulario3(context);
               },
             ),
             ListTile(
               title: const Text('CARNE DE POLLO',
-                  style: TextStyle(color: Colors.white)),
+                  style: TextStyle(color: Colors.black)),
               tileColor: Colors.white,
               onTap: () {
                 Navigator.pop(context);
+                navigateToFormulario5(context);
               },
             ),
           ],
@@ -84,8 +111,8 @@ class Formulario1 extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: Color.fromARGB(255, 10, 2, 2), // Color del contorno
-                    width: 6.0, // Ancho del contorno
+                    color: const Color.fromARGB(255, 10, 2, 2), // Color del contorno
+                    width: 4.0, // Ancho del contorno
                   ),
                 ),
                 child: const ClipOval(

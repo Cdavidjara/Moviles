@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Opcion4 extends StatelessWidget {
-  const Opcion4({Key? key}) : super(key: key);
+class Opcion3 extends StatelessWidget {
+  const Opcion3({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class Opcion4 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'EMBUTIDOS',
+              'CARNE DE CERDO',
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16.0),
@@ -21,10 +21,10 @@ class Opcion4 extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: [
-                      _buildImage('assets/imag/em1.png', 'JAMON AHUMADO'),
-                      _buildImage('assets/imag/em2.png', 'CHORIZO AMBATEÑO'),
-                      _buildImage('assets/imag/em3.png', 'SALCHICHA DE POLLO'),
-                      _buildImage('assets/imag/em4.png', 'SALCHICHA DE CARNE'),
+                      _buildImage('assets/imag/ce1.png', 'CHULETA'),
+                      _buildImage('assets/imag/ce2.png', 'CHULETA AHUMADA'),
+                      _buildImage('assets/imag/ce3.png', 'CARNE MOLIDA'),
+                      _buildImage('assets/imag/ce9.png', 'BRAZO'),
                     ],
                   ),
                 ),
@@ -32,10 +32,10 @@ class Opcion4 extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: [
-                      _buildImage('assets/imag/em5.png', 'TOCINO AHUMADO'),
-                      _buildImage('assets/imag/em6.png', 'MORCILLA'),
-                      _buildImage('assets/imag/em7.png', 'CHORIZO ESPAÑOL'),
-                      _buildImage('assets/imag/em8.png', 'CHORIZO PAISA'),
+                      _buildImage('assets/imag/ce5.png', 'PATAS'),
+                      _buildImage('assets/imag/ce6.png', 'FRITADA'),
+                      _buildImage('assets/imag/ce7.png', 'COSTILLA'),
+                      _buildImage('assets/imag/ce8.png', 'PIERNA'),
                     ],
                   ),
                 ),
@@ -43,10 +43,10 @@ class Opcion4 extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: [
-                      _buildImage('assets/imag/em9.png', 'LONGANIZA'),
-                      _buildImage('assets/imag/em10.png', 'MORTADELA DE CARNE'),
-                      _buildImage('assets/imag/em11.png', 'MORTADELA DE POLLO'),
-                      _buildImage('assets/imag/em12.png', 'SALAMI'),
+                      _buildImage('assets/imag/ce4.png',  'CUERO'),
+                      _buildImage('assets/imag/ce12.png', 'CHICHARRON'),
+                      _buildImage('assets/imag/ce10.png', 'LOMO'),
+                      _buildImage('assets/imag/ce11.png', 'OREJA'),
                     ],
                   ),
                 ),
@@ -63,7 +63,7 @@ class Opcion4 extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          width: 150.0,
+          width: 1500.0,
           height: 110.0,
           child: Image.asset(
             imagePath,
