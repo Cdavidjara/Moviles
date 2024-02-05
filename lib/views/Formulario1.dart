@@ -1,6 +1,3 @@
-
-
-
 import 'package:examen_002/views/carnedecerdo.dart';
 import 'package:examen_002/views/carnedepollo.dart';
 import 'package:examen_002/views/carnedevaca.dart';
@@ -16,18 +13,21 @@ class Formulario1 extends StatelessWidget {
       MaterialPageRoute(builder: (context) => const Opcion4()),
     );
   }
+
   void navigateToFormulario2(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const Opcion2()),
     );
   }
+
   void navigateToFormulario3(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const Opcion3()),
     );
   }
+
   void navigateToFormulario5(BuildContext context) {
     Navigator.push(
       context,
@@ -52,7 +52,7 @@ class Formulario1 extends StatelessWidget {
               ),
               child: const Center(
                 child: Text(
-                  'Opciones',
+                  'Productos',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
@@ -111,7 +111,8 @@ class Formulario1 extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: const Color.fromARGB(255, 10, 2, 2), // Color del contorno
+                    color: const Color.fromARGB(
+                        255, 10, 2, 2), // Color del contorno
                     width: 4.0, // Ancho del contorno
                   ),
                 ),
