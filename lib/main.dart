@@ -1,10 +1,6 @@
 import 'package:examen_002/views/Formulario1.dart';
 import 'package:flutter/material.dart';
 
-
-
-
-
 void main() {
   runApp(const MyApp());
 }
@@ -18,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: ''),

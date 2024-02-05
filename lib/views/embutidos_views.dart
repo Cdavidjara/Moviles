@@ -1,7 +1,44 @@
+import 'package:examen_002/controller/compra_controller.dart';
+import 'package:examen_002/views/compra_views.dart';
 import 'package:flutter/material.dart';
 
 class Opcion4 extends StatelessWidget {
   const Opcion4({Key? key}) : super(key: key);
+
+  void _navigateToCompra(BuildContext context, String nombreProducto) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => CompraView(
+          nombreProducto: nombreProducto,
+          compraController: CompraController(),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildImage(BuildContext context, String imagePath, String nombre) {
+    return GestureDetector(
+      onTap: () {
+        _navigateToCompra(context, nombre);
+      },
+      child: Column(
+        children: [
+          SizedBox(
+            width: 150.0,
+            height: 110.0,
+            child: Image.asset(
+              imagePath,
+              fit: BoxFit.cover,
+            ),
+          ),
+          const SizedBox(height: 5.0),
+          Text(nombre, style: const TextStyle(fontWeight: FontWeight.bold)),
+          const SizedBox(height: 10.0),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,71 +48,99 @@ class Opcion4 extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'EMBUTIDOS',
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             Row(
               children: [
                 Expanded(
                   child: Column(
                     children: [
-                      _buildImageWithDetails(
+                      _buildImage(
+                        context,
                         'assets/imag/em1.png',
-                        'JAMON',
-                        '\$00.50',
+                        'JAMON AHUMADO',
                       ),
-                      SizedBox(height: 10.0),
-                      _buildImageWithDetails(
-                        'assets/imag/em 2.png',
-                        'CHORIZO',
-                        '\$00.90',
+                      _buildImage(
+                        context,
+                        'assets/imag/em2.png',
+                        'CHORIZO AMBATEÑO',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em3.png',
+                        'SALCHICHA DE POLLO',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em4.png',
+                        'SALCHICHA DE CARNE',
                       ),
                     ],
                   ),
                 ),
-                SizedBox(width: 10.0),
+                const SizedBox(width: 10.0),
                 Expanded(
                   child: Column(
                     children: [
-                      _buildImageWithDetails(
-                        'assets/imag/em 3.png',
-                        'SALCHICHA DE POLLO',
-                        '\$00.80',
+                      _buildImage(
+                        context,
+                        'assets/imag/em5.png',
+                        'TOCINO AHUMADO',
                       ),
-                      SizedBox(height: 10.0),
-                      _buildImageWithDetails(
-                        'assets/imag/em4.png',
-                        'sALCHICHA DE CARNE',
-                        '\$01.00',
+                      _buildImage(
+                        context,
+                        'assets/imag/em6.png',
+                        'MORCILLA',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em7.png',
+                        'CHORIZO ESPAÑOL',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em8.png',
+                        'CHORIZO PAISA',
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 10.0),
+                Expanded(
+                  child: Column(
+                    children: [
+                      _buildImage(
+                        context,
+                        'assets/imag/em9.png',
+                        'LONGANIZA',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em10.png',
+                        'MORTADELA DE CARNE',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em11.png',
+                        'MORTADELA DE POLLO',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em12.png',
+                        'SALAMI',
                       ),
                     ],
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 16.0),
-            ElevatedButton(
-              onPressed: () {
-                // Lógica para realizar la acción de comprar
-              },
-              child: Text('Comprar'),
-            ),
+            const SizedBox(height: 16.0),
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildImageWithDetails(String imagePath, String name, String price) {
-    return Column(
-      children: [
-        Image.asset(imagePath),
-        SizedBox(height: 5.0),
-        Text(name, style: TextStyle(fontWeight: FontWeight.bold)),
-        Text(price),
-      ],
     );
   }
 }
