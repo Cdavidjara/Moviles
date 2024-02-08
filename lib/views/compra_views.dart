@@ -24,7 +24,7 @@ class _CompraViewState extends State<CompraView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Compra View'),
+        title: const Text('Compra'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
