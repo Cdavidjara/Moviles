@@ -1,9 +1,12 @@
 import 'package:examen_002/controller/compra_controller.dart';
+import 'package:examen_002/views/carnedecerdo.dart';
+import 'package:examen_002/views/carnedepollo.dart';
+import 'package:examen_002/views/carnedevaca.dart';
 import 'package:examen_002/views/compra_views.dart';
 import 'package:flutter/material.dart';
 
-class Opcion4 extends StatelessWidget {
-  const Opcion4({Key? key}) : super(key: key);
+class Opcion1 extends StatelessWidget {
+  const Opcion1({Key? key}) : super(key: key);
 
   void _navigateToCompra(BuildContext context, String nombreProducto) {
     Navigator.push(
@@ -40,9 +43,98 @@ class Opcion4 extends StatelessWidget {
     );
   }
 
+  void navigateToFormulario1(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Opcion1()),
+    );
+  }
+
+  void navigateToFormulario2(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Opcion2()),
+    );
+  }
+
+  void navigateToFormulario3(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Opcion3()),
+    );
+  }
+
+  void navigateToFormulario4(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Opcion4()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('CATEGORIAS'),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            Container(
+              height: 100,
+              decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 33, 219, 243),
+              ),
+              child: const Center(
+                child: Text(
+                  'Productos',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                  ),
+                ),
+              ),
+            ),
+            ListTile(
+              title: const Text('EMBUTIDOS',
+                  style: TextStyle(color: Colors.white)),
+              tileColor: Colors.black,
+              onTap: () {
+                Navigator.pop(context);
+                navigateToFormulario1(context);
+              },
+            ),
+            ListTile(
+              title: const Text('CARNE DE VACA',
+                  style: TextStyle(color: Colors.black)),
+              tileColor: Colors.white,
+              onTap: () {
+                Navigator.pop(context);
+                navigateToFormulario2(context);
+              },
+            ),
+            ListTile(
+              title: const Text('CARNE DE CERDO',
+                  style: TextStyle(color: Colors.white)),
+              tileColor: Colors.black,
+              onTap: () {
+                Navigator.pop(context);
+                navigateToFormulario3(context);
+              },
+            ),
+            ListTile(
+              title: const Text('CARNE DE POLLO',
+                  style: TextStyle(color: Colors.black)),
+              tileColor: Colors.white,
+              onTap: () {
+                Navigator.pop(context);
+                navigateToFormulario4(context);
+              },
+            ),
+          ],
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
