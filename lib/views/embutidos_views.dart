@@ -1,7 +1,44 @@
+import 'package:examen_002/controller/compra_controller.dart';
+import 'package:examen_002/views/compra_views.dart';
 import 'package:flutter/material.dart';
 
 class Opcion4 extends StatelessWidget {
   const Opcion4({Key? key}) : super(key: key);
+
+  void _navigateToCompra(BuildContext context, String nombreProducto) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => CompraView(
+          nombreProducto: nombreProducto,
+          compraController: CompraController(),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildImage(BuildContext context, String imagePath, String nombre) {
+    return GestureDetector(
+      onTap: () {
+        _navigateToCompra(context, nombre);
+      },
+      child: Column(
+        children: [
+          SizedBox(
+            width: 150.0,
+            height: 110.0,
+            child: Image.asset(
+              imagePath,
+              fit: BoxFit.cover,
+            ),
+          ),
+          const SizedBox(height: 5.0),
+          Text(nombre, style: const TextStyle(fontWeight: FontWeight.bold)),
+          const SizedBox(height: 10.0),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +58,26 @@ class Opcion4 extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: [
-                      _buildImage('assets/imag/em1.png', 'JAMON AHUMADO'),
-                      _buildImage('assets/imag/em2.png', 'CHORIZO AMBATEÑO'),
-                      _buildImage('assets/imag/em3.png', 'SALCHICHA DE POLLO'),
-                      _buildImage('assets/imag/em4.png', 'SALCHICHA DE CARNE'),
+                      _buildImage(
+                        context,
+                        'assets/imag/em1.png',
+                        'JAMON AHUMADO',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em2.png',
+                        'CHORIZO AMBATEÑO',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em3.png',
+                        'SALCHICHA DE POLLO',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em4.png',
+                        'SALCHICHA DE CARNE',
+                      ),
                     ],
                   ),
                 ),
@@ -32,10 +85,26 @@ class Opcion4 extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: [
-                      _buildImage('assets/imag/em5.png', 'TOCINO AHUMADO'),
-                      _buildImage('assets/imag/em6.png', 'MORCILLA'),
-                      _buildImage('assets/imag/em7.png', 'CHORIZO ESPAÑOL'),
-                      _buildImage('assets/imag/em8.png', 'CHORIZO PAISA'),
+                      _buildImage(
+                        context,
+                        'assets/imag/em5.png',
+                        'TOCINO AHUMADO',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em6.png',
+                        'MORCILLA',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em7.png',
+                        'CHORIZO ESPAÑOL',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em8.png',
+                        'CHORIZO PAISA',
+                      ),
                     ],
                   ),
                 ),
@@ -43,10 +112,26 @@ class Opcion4 extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: [
-                      _buildImage('assets/imag/em9.png', 'LONGANIZA'),
-                      _buildImage('assets/imag/em10.png', 'MORTADELA DE CARNE'),
-                      _buildImage('assets/imag/em11.png', 'MORTADELA DE POLLO'),
-                      _buildImage('assets/imag/em12.png', 'SALAMI'),
+                      _buildImage(
+                        context,
+                        'assets/imag/em9.png',
+                        'LONGANIZA',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em10.png',
+                        'MORTADELA DE CARNE',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em11.png',
+                        'MORTADELA DE POLLO',
+                      ),
+                      _buildImage(
+                        context,
+                        'assets/imag/em12.png',
+                        'SALAMI',
+                      ),
                     ],
                   ),
                 ),
@@ -56,24 +141,6 @@ class Opcion4 extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildImage(String imagePath, String name) {
-    return Column(
-      children: [
-        SizedBox(
-          width: 150.0,
-          height: 110.0,
-          child: Image.asset(
-            imagePath,
-            fit: BoxFit.cover,
-          ),
-        ),
-        const SizedBox(height: 5.0),
-        Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
-        const SizedBox(height: 10.0), // Ajusta este valor según tus necesidades
-      ],
     );
   }
 }
