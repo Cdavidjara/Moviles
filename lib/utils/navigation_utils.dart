@@ -44,7 +44,7 @@ Widget buildDrawer(BuildContext context) {
           ),
           child: const Center(
             child: Text(
-              'Opciones',
+              'Productos',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 30,
