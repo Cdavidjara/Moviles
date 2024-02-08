@@ -1,4 +1,5 @@
 import 'package:examen_002/controller/compra_controller.dart';
+import 'package:examen_002/views/mostrar_compra.dart';
 import 'package:flutter/material.dart';
 
 class CompraView extends StatefulWidget {
@@ -67,7 +68,12 @@ class _CompraViewState extends State<CompraView> {
             const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
-                _mostrarCompraGuardada();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MostrarDatosGuardadosView(),
+                  ),
+                );
               },
               child: const Text('Mostrar Compra Guardada'),
             ),
