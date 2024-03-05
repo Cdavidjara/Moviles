@@ -6,8 +6,24 @@ class ContactForm extends StatelessWidget {
     return SingleChildScrollView(
       padding: EdgeInsets.all(16.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          SizedBox(height: 16.0),
+          Container(
+            width: 150.0,
+            height: 150.0,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(),
+            ),
+            child: ClipOval(
+              child: Image(
+                image: AssetImage('assets/imag/logo.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          SizedBox(height: 16.0),
           Text(
             'Contáctenos',
             style: TextStyle(
@@ -17,30 +33,35 @@ class ContactForm extends StatelessWidget {
           ),
           SizedBox(height: 16.0),
           Text(
-            'Nombre: Nombre de la Empresa',
-            style: TextStyle(fontSize: 18.0),
+            'Nombre: Carnicos S.A',
+            style: TextStyle(
+              fontSize: 18.0,
+              fontStyle: FontStyle.italic,
+            ),
           ),
           SizedBox(height: 8.0),
           Text(
-            'Dirección: Dirección de la Empresa',
-            style: TextStyle(fontSize: 18.0),
+            'Dirección: Latacunga-Ecuador',
+            style: TextStyle(
+              fontSize: 18.0,
+              fontStyle: FontStyle.italic,
+            ),
           ),
           SizedBox(height: 8.0),
           Text(
-            'Teléfono: Teléfono de Contacto',
-            style: TextStyle(fontSize: 18.0),
+            'Teléfono: 0983727408',
+            style: TextStyle(
+              fontSize: 18.0,
+              fontStyle: FontStyle.italic,
+            ),
           ),
           SizedBox(height: 8.0),
           Text(
-            'Correo Electrónico: Correo Electrónico de Contacto',
-            style: TextStyle(fontSize: 18.0),
-          ),
-          SizedBox(height: 16.0),
-          ElevatedButton(
-            onPressed: () {
-              // Agrega aquí la lógica para el botón de contacto si lo necesitas
-            },
-            child: Text('Contactar'),
+            'Correo Electrónico: carnicosSA@carnicos.com',
+            style: TextStyle(
+              fontSize: 18.0,
+              fontStyle: FontStyle.italic,
+            ),
           ),
         ],
       ),
