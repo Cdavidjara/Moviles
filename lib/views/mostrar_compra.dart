@@ -54,7 +54,7 @@ class _ListaState extends State<Lista> {
                           ))),
                 );
               },
-              
+              child: const Icon(Icons.bakery_dining_sharp)),
         );
       },
     );
