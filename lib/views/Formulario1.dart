@@ -11,6 +11,7 @@ class Formulario1 extends StatefulWidget {
 class _Formulario1State extends State<Formulario1> {
   late PageController _pageController;
   int _currentPage = 0;
+  late Timer _timer;
 
   @override
   void initState() {
@@ -27,13 +28,14 @@ class _Formulario1State extends State<Formulario1> {
   }
 
   void _startAutoPlay() {
-    // Configurar un temporizador para avanzar las imágenes cada 3 segundos
-    Timer.periodic(Duration(seconds: 3), (timer) {
-      if (_currentPage < 4) {
-        _currentPage++;
-      } else {
-        _currentPage = 0;
-      }
+    _timer = Timer.periodic(Duration(seconds: 3), (timer) {
+      setState(() {
+        if (_currentPage < 4) {
+          _currentPage++;
+        } else {
+          _currentPage = 0;
+        }
+      });
       _pageController.animateToPage(
         _currentPage,
         duration: Duration(milliseconds: 500),
@@ -43,8 +45,7 @@ class _Formulario1State extends State<Formulario1> {
   }
 
   void _stopAutoPlay() {
-    // Detener el temporizador
-    // No es necesario llamar a _pageController.dispose() aquí
+    _timer.cancel();
   }
 
   @override
@@ -53,58 +54,61 @@ class _Formulario1State extends State<Formulario1> {
       appBar: AppBar(
         title: const Text('CATEGORIAS'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 50.0),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 25.0),
-              child: Container(
-                width: 300.0,
-                height: 250.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(),
-                ),
-                child: const ClipOval(
-                  child: Image(
-                    image: AssetImage('assets/imag/logo.jpg'),
-                    fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 50.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 25.0),
+                child: Container(
+                  width: 300.0,
+                  height: 250.0,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(),
+                  ),
+                  child: const ClipOval(
+                    child: Image(
+                      image: AssetImage('assets/imag/logo.jpg'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 12),
-            const Text(
-              'BIENVENIDOS',
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
+              const SizedBox(height: 12),
+              const Text(
+                'BIENVENIDOS',
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              'CARNICOS, SA',
-              style: TextStyle(
-                fontSize: 25,
+              const SizedBox(height: 8),
+              const Text(
+                'CARNICOS, SA',
+                style: TextStyle(
+                  fontSize: 25,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              height: 150, // Altura del carrusel
-              child: PageView(
-                controller: _pageController,
-                scrollDirection: Axis.horizontal,
-                children: [
-                  _buildImage('assets/imag/juris.png'),
-                  _buildImage('assets/imag/mister.png'),
-                  _buildImage('assets/imag/pavo.png'),
-                  _buildImage('assets/imag/plu.png'),
-                  _buildImage('assets/imag/pronaca.png'),
-                ],
+              const SizedBox(height: 20),
+              SizedBox(
+                height: 150,
+                child: PageView(
+                  controller: _pageController,
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    _buildImage('assets/imag/juris.png'),
+                    _buildImage('assets/imag/mister.png'),
+                    _buildImage('assets/imag/pavo.png'),
+                    _buildImage('assets/imag/plu.png'),
+                    _buildImage('assets/imag/pronaca.png'),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
