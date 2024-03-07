@@ -5,37 +5,28 @@ Compra compraFromJson(String str) => Compra.fromJson(json.decode(str));
 String compraToJson(Compra data) => json.encode(data.toJson());
 
 class Compra {
-  String cedula;
-  String nombre;
-  String direccion;
   String nombreProd;
   String descripcion;
-  double presio;
+  double precio;
 
   Compra({
-    required this.cedula,
-    required this.nombre,
-    required this.direccion,
     required this.nombreProd,
     required this.descripcion,
-    required this.presio,
+    required this.precio,
   });
 
   factory Compra.fromJson(Map<String, dynamic> json) => Compra(
-        cedula: json["cedula"],
-        nombre: json["nombre"],
-        direccion: json["direccion"],
         nombreProd: json["nombreProd"],
         descripcion: json["descripcion"],
-        presio: json["presio"]?.toDouble(),
+        precio: json["precio"]?.toDouble(),
       );
 
   Map<String, dynamic> toJson() => {
-        "cedula": cedula,
-        "nombre": nombre,
-        "direccion": direccion,
         "nombreProd": nombreProd,
         "descripcion": descripcion,
-        "presio": presio,
+        "precio": precio,
       };
+  static Compra init() {
+    return Compra(nombreProd: '', descripcion: '', precio: 0.0);
+  }
 }

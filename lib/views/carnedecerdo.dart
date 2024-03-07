@@ -1,6 +1,8 @@
-import 'package:examen_002/controller/compra_controller.dart';
+import 'package:examen_002/main.dart';
+import 'package:examen_002/models/compra_models.dart';
 import 'package:examen_002/views/carnedepollo.dart';
 import 'package:examen_002/views/carnedevaca.dart';
+import 'package:examen_002/views/compra_page.dart';
 import 'package:examen_002/views/compra_views.dart';
 import 'package:examen_002/views/embutidos_views.dart';
 import 'package:flutter/material.dart';
@@ -8,43 +10,50 @@ import 'package:flutter/material.dart';
 class Opcion3 extends StatelessWidget {
   const Opcion3({Key? key}) : super(key: key);
 
-  void _navigateToCompra(BuildContext context, String nombreProducto) {
+  void _navigateToCompra(BuildContext context, String nombreProducto,
+      String descripcion, double precio, String imagePath) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => CompraView(
+        builder: (context) => Registro(
           nombreProducto: nombreProducto,
-          compraController: CompraController(),
+          descripcion: descripcion,
+          precio: precio,
+          imagePath: imagePath,
         ),
       ),
     );
   }
 
-  void navigateToFormulario4(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const Opcion1()),
-    );
-  }
-
-  void navigateToFormulario2(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const Opcion2()),
-    );
-  }
-
-  void navigateToFormulario3(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const Opcion3()),
-    );
-  }
-
-  void navigateToFormulario5(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const Opcion4()),
+  Widget _buildImage(BuildContext context, String imagePath, String name,
+      String description, double price) {
+    return GestureDetector(
+      onTap: () {
+        _navigateToCompra(
+          context,
+          name,
+          description,
+          price,
+          imagePath, // Aquí se agrega el argumento precio
+        );
+      },
+      child: Column(
+        children: [
+          SizedBox(
+            width: 150.0,
+            height: 110.0,
+            child: Image.asset(
+              imagePath,
+              fit: BoxFit.cover,
+            ),
+          ),
+          const SizedBox(height: 5.0),
+          Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
+          Text(description),
+          Text('\$$price'),
+          const SizedBox(height: 10.0),
+        ],
+      ),
     );
   }
 
@@ -74,6 +83,14 @@ class Opcion3 extends StatelessWidget {
               ),
             ),
             ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Inicio'),
+              onTap: () {
+                _navigateToFormulario1(context); // Cambia a la función adecuada
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.kitchen),
               title: const Text('EMBUTIDOS',
                   style: TextStyle(color: Colors.white)),
               tileColor: Colors.black,
@@ -83,6 +100,7 @@ class Opcion3 extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: Icon(Icons.fastfood),
               title: const Text('CARNE DE VACA',
                   style: TextStyle(color: Colors.black)),
               tileColor: Colors.white,
@@ -92,6 +110,7 @@ class Opcion3 extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: Icon(Icons.bakery_dining),
               title: const Text('CARNE DE CERDO',
                   style: TextStyle(color: Colors.white)),
               tileColor: Colors.black,
@@ -101,6 +120,7 @@ class Opcion3 extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: Icon(Icons.food_bank),
               title: const Text('CARNE DE POLLO',
                   style: TextStyle(color: Colors.black)),
               tileColor: Colors.white,
@@ -122,89 +142,117 @@ class Opcion3 extends StatelessWidget {
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16.0),
-            Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    children: [
-                      _buildImage(
-                        context,
-                        'assets/imag/ce1.png',
-                        'CHULETA',
+            Expanded(
+              child: SingleChildScrollView(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        children: [
+                          _buildImage(
+                            context,
+                            'assets/imag/ce1.png',
+                            'CHULETA',
+                            'Chuleta de cerdo fresca y jugosa',
+                            10.50,
+                          ),
+                          _buildImage(
+                            context,
+                            'assets/imag/ce2.png',
+                            'CHULETA AHUMADA',
+                            'Chuleta ahumada con un sabor irresistible',
+                            12.75,
+                          ),
+                          _buildImage(
+                            context,
+                            'assets/imag/ce3.png',
+                            'CARNE MOLIDA',
+                            'Carne de cerdo molida, ideal para preparar tus platos favoritos',
+                            8.25,
+                          ),
+                          _buildImage(
+                            context,
+                            'assets/imag/ce9.png',
+                            'BRAZO',
+                            'Brazo de cerdo fresco y de alta calidad',
+                            15.00,
+                          ),
+                        ],
                       ),
-                      _buildImage(
-                        context,
-                        'assets/imag/ce2.png',
-                        'CHULETA AHUMADA',
+                    ),
+                    const SizedBox(width: 10.0),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          _buildImage(
+                            context,
+                            'assets/imag/ce5.png',
+                            'PATAS',
+                            'Patas de cerdo frescas y sabrosas',
+                            9.99,
+                          ),
+                          _buildImage(
+                            context,
+                            'assets/imag/ce6.png',
+                            'FRITADA',
+                            'Fritada de cerdo casera y deliciosa',
+                            11.50,
+                          ),
+                          _buildImage(
+                            context,
+                            'assets/imag/ce7.png',
+                            'COSTILLA',
+                            'Costilla de cerdo tierna y jugosa',
+                            13.25,
+                          ),
+                          _buildImage(
+                            context,
+                            'assets/imag/ce8.png',
+                            'PIERNA',
+                            'Pierna de cerdo fresca y perfecta para asados',
+                            18.75,
+                          ),
+                        ],
                       ),
-                      _buildImage(
-                        context,
-                        'assets/imag/ce3.png',
-                        'CARNE MOLIDA',
+                    ),
+                    const SizedBox(width: 10.0),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          _buildImage(
+                            context,
+                            'assets/imag/ce4.png',
+                            'CUERO',
+                            'Cuero de cerdo crujiente y delicioso',
+                            7.50,
+                          ),
+                          _buildImage(
+                            context,
+                            'assets/imag/ce12.png',
+                            'CHICHARRON',
+                            'Chicharrón de cerdo dorado y sabroso',
+                            6.75,
+                          ),
+                          _buildImage(
+                            context,
+                            'assets/imag/ce10.png',
+                            'LOMO',
+                            'Lomo de cerdo premium, jugoso y tierno',
+                            20.00,
+                          ),
+                          _buildImage(
+                            context,
+                            'assets/imag/ce11.png',
+                            'OREJA',
+                            'Oreja de cerdo cocida y lista para servir',
+                            5.50,
+                          ),
+                        ],
                       ),
-                      _buildImage(
-                        context,
-                        'assets/imag/ce9.png',
-                        'BRAZO',
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                const SizedBox(width: 10.0),
-                Expanded(
-                  child: Column(
-                    children: [
-                      _buildImage(
-                        context,
-                        'assets/imag/ce5.png',
-                        'PATAS',
-                      ),
-                      _buildImage(
-                        context,
-                        'assets/imag/ce6.png',
-                        'FRITADA',
-                      ),
-                      _buildImage(
-                        context,
-                        'assets/imag/ce7.png',
-                        'COSTILLA',
-                      ),
-                      _buildImage(
-                        context,
-                        'assets/imag/ce8.png',
-                        'PIERNA',
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: 10.0),
-                Expanded(
-                  child: Column(
-                    children: [
-                      _buildImage(
-                        context,
-                        'assets/imag/ce4.png',
-                        'CUERO',
-                      ),
-                      _buildImage(
-                        context,
-                        'assets/imag/ce12.png',
-                        'CHICHARRON',
-                      ),
-                      _buildImage(
-                        context,
-                        'assets/imag/ce10.png',
-                        'LOMO',
-                      ),
-                      _buildImage(
-                        context,
-                        'assets/imag/ce11.png',
-                        'OREJA',
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+              ),
             ),
             const SizedBox(height: 16.0),
           ],
@@ -213,26 +261,38 @@ class Opcion3 extends StatelessWidget {
     );
   }
 
-  Widget _buildImage(BuildContext context, String imagePath, String name) {
-    return GestureDetector(
-      onTap: () {
-        _navigateToCompra(context, name);
-      },
-      child: Column(
-        children: [
-          SizedBox(
-            width: 150.0,
-            height: 110.0,
-            child: Image.asset(
-              imagePath,
-              fit: BoxFit.cover,
-            ),
-          ),
-          const SizedBox(height: 5.0),
-          Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
-          const SizedBox(height: 10.0),
-        ],
-      ),
+  void _navigateToFormulario1(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const MyHomePage()),
+    );
+  }
+
+  void navigateToFormulario4(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Opcion1()),
+    );
+  }
+
+  void navigateToFormulario2(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Opcion2()),
+    );
+  }
+
+  void navigateToFormulario3(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Opcion3()),
+    );
+  }
+
+  void navigateToFormulario5(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Opcion4()),
     );
   }
 }

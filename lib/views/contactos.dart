@@ -8,59 +8,68 @@ class ContactForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: 16.0),
-          Container(
-            width: 150.0,
-            height: 150.0,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(),
-            ),
-            child: ClipOval(
-              child: Image(
-                image: AssetImage('assets/imag/logo.jpg'),
-                fit: BoxFit.cover,
-              ),
-            ),
+          SizedBox(height: 32.0),
+          CircleAvatar(
+            radius: 75.0,
+            backgroundColor: Colors.transparent,
+            backgroundImage: AssetImage('assets/imag/logo.jpg'),
           ),
-          SizedBox(height: 16.0),
+          SizedBox(height: 24.0),
           Text(
-            'Contáctenos',
+            '¡Contáctanos!',
             style: TextStyle(
-              fontSize: 24.0,
+              fontSize: 28.0,
               fontWeight: FontWeight.bold,
+              color: Colors.blue[900],
             ),
           ),
           SizedBox(height: 16.0),
-          Text(
-            'Nombre: Carnicos S.A',
-            style: TextStyle(
-              fontSize: 18.0,
-              fontStyle: FontStyle.italic,
-            ),
+          ContactInfo(
+            icon: Icons.location_on,
+            text: 'Latacunga, Ecuador',
           ),
-          SizedBox(height: 8.0),
-          Text(
-            'Dirección: Latacunga-Ecuador',
-            style: TextStyle(
-              fontSize: 18.0,
-              fontStyle: FontStyle.italic,
-            ),
+          ContactInfo(
+            icon: Icons.phone,
+            text: '0983727408',
           ),
-          SizedBox(height: 8.0),
-          Text(
-            'Teléfono: 0983727408',
-            style: TextStyle(
-              fontSize: 18.0,
-              fontStyle: FontStyle.italic,
-            ),
+          ContactInfo(
+            icon: Icons.email,
+            text: 'carnicosSA@carnicos.com',
           ),
-          SizedBox(height: 8.0),
+        ],
+      ),
+    );
+  }
+}
+
+class ContactInfo extends StatelessWidget {
+  final IconData icon;
+  final String text;
+
+  const ContactInfo({
+    required this.icon,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            icon,
+            size: 24.0,
+            color: Colors.blue[900],
+          ),
+          SizedBox(width: 8.0),
           Text(
-            'Correo Electrónico: carnicosSA@carnicos.com',
+            text,
             style: TextStyle(
               fontSize: 18.0,
               fontStyle: FontStyle.italic,
+              color: Colors.blue[900],
             ),
           ),
         ],

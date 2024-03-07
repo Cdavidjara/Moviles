@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "382087341494",
+    "project_id": "carnes-c50bb",
+    "storage_bucket": "carnes-c50bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382087341494:android:8473a7bcf0380f57830d17",
+        "android_client_info": {
+          "package_name": "com.example.examen_002"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVTf3V_b2PVC9MWJ562t4_dakuygsGeRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
