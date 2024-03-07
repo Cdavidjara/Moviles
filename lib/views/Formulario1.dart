@@ -44,7 +44,7 @@ class _Formulario1State extends State<Formulario1> {
 
   void _stopAutoPlay() {
     // Detener el temporizador
-    _pageController.dispose();
+    // No es necesario llamar a _pageController.dispose() aquí
   }
 
   @override
